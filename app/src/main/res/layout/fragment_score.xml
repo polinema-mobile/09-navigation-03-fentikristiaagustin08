@@ -5,7 +5,15 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	>
 	<data>
-
+		<variable
+			name="score"
+			type="id.ac.polinema.skor.fragments.ScoreFragment" />
+		<variable
+			name="home"
+			type="java.util.List" />
+		<variable
+			name="away"
+			type="java.util.List" />
 	</data>
 
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -42,6 +50,7 @@
 			android:layout_marginStart="8dp"
 			android:layout_marginEnd="8dp"
 			android:layout_marginBottom="16dp"
+			android:onClick="@{(v) -> score.onAddHomeClick(v)}"
 			android:text="Add Score Home"
 			app:layout_constraintBottom_toTopOf="@+id/guideline"
 			app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +64,7 @@
 			android:layout_marginEnd="8dp"
 			android:layout_marginBottom="16dp"
 			android:text="Add Score Away"
+			android:onClick="@{(v) -> score.onAddAwayClick(v)}"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintHorizontal_bias="0.0"
@@ -71,6 +81,7 @@
 			android:id="@+id/text_home_score"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:text="@{String.valueOf(home.size())}"
 			android:textSize="64sp"
 			app:layout_constraintBottom_toTopOf="@+id/guideline"
 			app:layout_constraintEnd_toEndOf="parent"
@@ -81,6 +92,7 @@
 			android:id="@+id/text_away_score"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:text="@{String.valueOf(away.size())}"
 			android:textSize="64sp"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
@@ -92,6 +104,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="8dp"
+			android:text="@{score.homeScorer}"
 			app:layout_constraintBottom_toTopOf="@+id/button_add_home"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent" />
@@ -101,6 +114,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="8dp"
+			android:text="@{score.awayScorer}"
 			app:layout_constraintBottom_toTopOf="@+id/button_add_away"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent" />
